@@ -35,7 +35,7 @@ plt.show()
 
 ### Results
 
-![Visualization of Top Skills](Project\Images\skill_demand.png)
+![Visualization of Top Skills](Project/Images/skill_demand.png)
 
 ### Insights
 * SQL Dominance: SQL is consistently a top requirement across all three roles, emphasizing its importance in the data ecosystem.
