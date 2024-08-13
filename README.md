@@ -1,3 +1,50 @@
+# Overview
+Welcome to my analysis of the data job market with a focus on data analyst positions. This project was driven by a need to better understand and navigate the job market. It examines the highest-paying and most sought-after skills to identify the best job opportunities for data analysts.
+
+The data for this analysis comes from [Luke Barousse's Python Course](https://www.lukebarousse.com/python), which provided a valuable foundation. This dataset includes detailed information on job titles, salaries, locations, and key skills. Using Python scripts, I investigate important questions such as the most in-demand skills, salary trends, and how demand correlates with salary in the data analytics field.
+
+# The Questions
+Below are the questions I want to answer in my project:
+
+1. What are the skills most in demand for the top 3 most popular data roles?
+2. How are in-demand skills trending for Data Analysts?
+3. How well do jobs and skills pay for Data Analysts?
+4. What are the optimal skills for data analysts to learn? (High Demand AND High Paying
+
+# Tools I Used
+* Python served as the core of my analysis, enabling me to examine the data and uncover valuable insights. Here’s a breakdown of the tools and libraries I utilized:
+  * Pandas: Used for data analysis and manipulation.
+  * Matplotlib: Employed for creating visualizations of the data.
+  * Seaborn: Assisted in generating more sophisticated and aesthetically pleasing visuals.
+* Jupyter Notebooks: Provided an interactive environment for running Python scripts, allowing me to integrate notes and analyses seamlessly.
+* Visual Studio Code: My preferred editor for writing and executing Python scripts.
+* Git & GitHub: Crucial for version control and sharing my code and analysis, facilitating collaboration and tracking progress.
+
+# Data Preparation and Cleanup
+
+## Import and Cleanup
+```python
+# Importing Libraries
+import ast
+import pandas as pd
+import seaborn as sns
+from datasets import load_dataset
+import matplotlib.pyplot as plt  
+
+# Loading Data
+dataset = load_dataset('lukebarousse/data_jobs')
+df = dataset['train'].to_pandas()
+
+# Data Cleanup
+df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
+df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else x)
+```
+
+## Filter India Jobs
+To focus my analysis on India job market, I apply filters to the dataset, narrowing down to roles based in India.
+```python
+df_ind = df[df['job_country'] == 'India']
+```
 # The Analysis
 Each Jupyter notebook for this project aimed at investigating specific aspects of the data job market. Here’s how I approached each question:
 
@@ -163,3 +210,22 @@ plt.show()
 * More commonly required skills like `SQL`, `Python`, `Excel` have large presence in job listings but less median salaries compared to specialized skills.
 *  This suggests that a combination of technical proficiency and soft skills (like those represented by Powerpoint) might be crucial for maximizing earnings.
 
+## What I learned
+
+Throughtout this project, I deepened my understanding of the data analyst job market particularly in India and enhanced my technical skills in Python for data manipulation and visualization.
+
+* Advanced Python Skills: I got better at using Python for data analysis by working with libraries like Pandas for handling data and Seaborn and Matplotlib for creating visualizations. These tools helped me analyze data more effectively.
+* The Importance of Data Cleaning: I realized that cleaning and preparing data thoroughly is essential before starting any analysis. This step is key to getting accurate and reliable results from the data.
+* Strategic Skill Analysis: The project emphasized the importance of aligning one's skills with market demand. Understanding the relationship between skill demand, salary, and job availability allows for more strategic career planning in the tech industry.
+
+## Challenges I Faced
+
+This project was not without its challenges, but it provided good learning opportunities:
+
+* Data Inconsistencies: Handling missing or inconsistent data entries requires careful consideration and thorough data-cleaning techniques to ensure the integrity of the analysis.
+* Complex Data Visualization: Designing effective visual representations of complex datasets was challenging but critical for conveying insights clearly and compellingly.
+* Balancing Breadth and Depth: Deciding how deeply to dive into each analysis while maintaining a broad overview of the data landscape required constant balancing to ensure comprehensive coverage without getting lost in details.
+
+## Conclusion
+
+Exploring the data analyst job market has been highly educational, revealing the key skills and trends that define this dynamic field. The knowledge gained not only deepens my understanding but also offers practical advice for those aiming to advance in data analytics. Given the ever-evolving nature of the market, staying updated through ongoing analysis will be crucial. This project provides a solid base for future studies and emphasizes the need for continuous learning and adaptability in the data analytics profession.
