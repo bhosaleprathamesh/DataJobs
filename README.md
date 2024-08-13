@@ -92,3 +92,33 @@ plt.show()
 * The disparity in salary distributions suggests varying levels of skill demand and market value for these roles. Data Engineering skills appear to be in higher demand, leading to premium salaries.
 * The data hints at potential career trajectories. Data Analysts might consider upskilling to move into Data Engineering for better compensation.
 * The positive skew in all distributions might indicate a larger pool of entry-level to mid-level professionals compared to senior positions with top salaries.
+
+###  Highest Paid & Most Demanded Skills for Data Analysts
+
+Next, I narrowed my analysis and focused only on data analyst roles. I looked at the highest-paid skills and the most in-demand skills. I used two bar charts to showcase these.
+
+### Visualize Data
+
+```python
+# Top 10 Highest Paid Skills for Data Analysts
+sns.barplot(data=df_DA_top_pay, x='median', y=df_DA_top_pay.index, hue='median', ax=ax[0], palette='flare')
+
+# Top 10 Most In-Demand Skills for Data Analysts')
+sns.barplot(data=df_DA_skills, x='median', y=df_DA_skills.index, hue='median', ax=ax[1], palette='flare')
+
+plt.tight_layout()
+plt.show()
+```
+
+### Results
+
+![Visualization of highest paid and most demanded skills for Data Analysts](Project/Images/highest_paid_and_most_demanded_skills_da.png)
+
+*Two seperate bar graphs visualizing highest paid and most in-demand skills for Data Analysts in India 2023*
+
+### Insights
+
+* The top graph shows specialized technical skills like pyspark, Postgresql, Gitlab etc are associated with higher salaries, some reaching up to $165K, suggesting that advanced technical proficiency can increase earning potential.
+* The bottom graph highlights that `foundational skills` like Excel, Python, and SQL are the most in-demand, even though they may not offer the highest salaries. This demonstrates the importance of these core skills for employability in data analysis roles.
+* There's a clear distinction between the skills that are highest paid and those that are most in-demand. Data analysts aiming to maximize their career potential should consider developing a diverse skill set that includes both high-paying specialized skills and widely demanded foundational skills.
+
