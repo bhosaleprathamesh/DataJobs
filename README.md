@@ -63,3 +63,32 @@ plt.show()
 * Python on the Rise: Python's popularity is evident, with a steady increase in demand throughout the year, solidifying its position as a versatile language for data analysis and manipulation.
 * Excel's Enduring Importance: Excel remains a core skill, showcasing its value in data cleaning, analysis, and reporting.
 * Data Visualization Tools: Tableau and Power BI are essential for data storytelling and insights extraction, reflected in their consistent demand.
+
+## 3. How are the yearly salaries distributed across top 3 job roles?
+
+To identify the top 3 job roles in India, I filtered the dataset with roles having the most number of jobs. Then I looked at there salary distirbutions to get an idea which jobs are paid the most.
+
+View my notebook with detailed steps here: [4_Salary_Analysis.ipynb](Project/4_Salary_Analysis.ipynb)
+
+### Visualize Data
+
+```python
+fig, axs = plt.subplots(1, 3, figsize=(18, 6), sharey=True)
+sns.histplot(df_da['salary_year_avg'], kde=True, fill=True, ax=axs[0], color='royalblue', edgecolor='black')
+sns.histplot(df_de['salary_year_avg'], kde=True, fill=True, ax=axs[1], color='royalblue', edgecolor='black')
+sns.histplot(df_ds['salary_year_avg'], kde=True, fill=True, ax=axs[2], color='royalblue', edgecolor='black')
+
+plt.tight_layout()
+plt.show()
+```
+### Results
+
+![Visualization of Salary Distribution](Project/Images/salary_distribution.png)
+
+*Histogram Visualizing the Salary Distribution of Top 3 job roles in India 2023*
+
+### Insights
+
+* The disparity in salary distributions suggests varying levels of skill demand and market value for these roles. Data Engineering skills appear to be in higher demand, leading to premium salaries.
+* The data hints at potential career trajectories. Data Analysts might consider upskilling to move into Data Engineering for better compensation.
+* The positive skew in all distributions might indicate a larger pool of entry-level to mid-level professionals compared to senior positions with top salaries.
