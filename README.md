@@ -122,3 +122,44 @@ plt.show()
 * The bottom graph highlights that `foundational skills` like Excel, Python, and SQL are the most in-demand, even though they may not offer the highest salaries. This demonstrates the importance of these core skills for employability in data analysis roles.
 * There's a clear distinction between the skills that are highest paid and those that are most in-demand. Data analysts aiming to maximize their career potential should consider developing a diverse skill set that includes both high-paying specialized skills and widely demanded foundational skills.
 
+## 4. What are the most optimal skills to learn for Data Analysts?
+
+To identify the most optimal skills to learn ( the ones that are the highest paid and highest in demand) I calculated the percent of skill demand and the median salary of these skills. To easily identify which are the most optimal skills to learn.
+
+View my notebook with detailed steps here:  [5_Optimal_Skills.ipynb](Project/5_Optimal_Skills.ipynb)
+
+### Visualize Data
+
+```python
+sns.scatterplot(
+    data=df_DA_skills_high_demand,
+    x='skill_percent',
+    y='median_salary',
+    color='royalblue',
+    marker='o',
+    edgecolor='black'
+)
+
+adjust_text(texts, arrowprops=dict(arrowstyle='->', color='gray'), force_text=0.5)
+
+from matplotlib.ticker import PercentFormatter
+ax = plt.gca()
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K'))
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+plt.tight_layout()
+plt.show()
+```
+
+### Results
+
+![Visualization of the most optimal skills for Data Analysts](Project/Images/optimal_skills_data_analysts.png)
+
+*Scatter plot visualizing the most optimal skills(high demand & high paying) for Data Analysts in India*
+
+### Insights
+
+* Skills like `Looker`, `Spark`,`Powerpoint` etc have the highest median salaries despite being less common in job postings.
+* More commonly required skills like `SQL`, `Python`, `Excel` have large presence in job listings but less median salaries compared to specialized skills.
+*  This suggests that a combination of technical proficiency and soft skills (like those represented by Powerpoint) might be crucial for maximizing earnings.
+
